@@ -1,0 +1,8 @@
+co_host: '127.0.0.1'
+co_port: 3399
+co_user: "root"
+co_passwd: "TccServer2024@"
+co_database: "co"
+# 以天为单位
+clean_block_data_older_than: 7
+clean_container_data_older_than: 14

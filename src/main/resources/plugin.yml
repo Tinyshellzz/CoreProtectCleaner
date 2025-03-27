@@ -1,0 +1,7 @@
+name: CoreProtectCleaner
+version: '${version}'
+main: tcc.tinyshellzzz.coreProtectCleaner.CoreProtectCleaner
+api-version: '1.20'
+load: POSTWORLD
+authors: [ Tinyshellzzz ]
+folia-supported: true
