@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class CoreProtectMapper {
     public void delete_block_data_older_then(long time) {
@@ -15,7 +16,7 @@ public class CoreProtectMapper {
         ResultSet rs = null;
         try {
             conn = MysqlConfig.connect();
-            stmt = conn.prepareStatement("DELETE FROM co_block WHERE time<?");
+            stmt = conn.prepareStatement("DELETE FROM co_block WHERE time<?  LIMIT 100000");
             stmt.setLong(1, time);
             stmt.executeUpdate();
             conn.commit();
@@ -37,7 +38,7 @@ public class CoreProtectMapper {
         ResultSet rs = null;
         try {
             conn = MysqlConfig.connect();
-            stmt = conn.prepareStatement("DELETE FROM co_container WHERE time<?");
+            stmt = conn.prepareStatement("DELETE FROM co_container WHERE time<? LIMIT 100000");
             stmt.setLong(1, time);
             stmt.executeUpdate();
             conn.commit();

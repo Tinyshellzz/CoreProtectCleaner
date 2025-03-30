@@ -3,6 +3,8 @@ package tcc.tinyshellzzz.coreProtectCleaner.config;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import java.util.List;
+
 import static tcc.tinyshellzzz.coreProtectCleaner.ObjectPool.gson;
 import static tcc.tinyshellzzz.coreProtectCleaner.ObjectPool.plugin;
 
@@ -19,6 +21,7 @@ public class PluginConfig {
     public static String co_database;
     public static int clean_block_data_older_than;
     public static int clean_container_data_older_than;
+    public static List<Integer> clean_block_type;
 
 
     public static void reload() {
@@ -35,6 +38,7 @@ public class PluginConfig {
         co_database = yamlconfig.getString("co_database");
         clean_block_data_older_than  = yamlconfig.getInt("clean_block_data_older_than");
         clean_container_data_older_than  = yamlconfig.getInt("clean_container_data_older_than");
+        clean_block_type = yamlconfig.getIntegerList("clean_block_type");
     }
 
     @Override

@@ -24,7 +24,7 @@ public class RunTask {
         // 每小时执行一次
         scheduler.scheduleAtFixedRate(new CoCleanTask(),
                 initialDelay,
-                TimeUnit.HOURS.toSeconds(1),
+                TimeUnit.MINUTES.toSeconds(1),
                 TimeUnit.SECONDS);
     }
 }
