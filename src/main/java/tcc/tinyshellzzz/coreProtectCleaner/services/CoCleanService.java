@@ -10,6 +10,8 @@ import java.io.StringWriter;
 import static tcc.tinyshellzzz.coreProtectCleaner.ObjectPool.coreProtectMapper;
 
 public class CoCleanService {
+    private int k = 0;
+
     public void clean() {
         Thread th = new Thread(() -> {
             try {
@@ -17,7 +19,12 @@ public class CoCleanService {
 
                 coreProtectMapper.delete_container_data_older_then(System.currentTimeMillis() / 1000L - 86400L * PluginConfig.clean_container_data_older_than);
 
-                Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[coCleaner]" + ChatColor.DARK_GREEN + "co数据库清理完成");
+                if(k >= 10) {
+                    Bukkit.getConsoleSender().sendMessage(ChatColor.AQUA + "[coCleaner]" + ChatColor.DARK_GREEN + "co数据库清理完成");
+                    k = 0;
+                } else {
+                    k++;
+                }
             } catch (RuntimeException e) {
                 StringWriter sw = new StringWriter();
                 PrintWriter pw = new PrintWriter(sw);
