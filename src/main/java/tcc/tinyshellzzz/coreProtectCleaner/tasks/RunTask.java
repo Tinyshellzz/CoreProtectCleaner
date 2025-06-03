@@ -12,19 +12,12 @@ import java.util.concurrent.TimeUnit;
 
 public class RunTask {
     public static void run() {
-        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Asia/Shanghai"));
-        ZonedDateTime nextRun = now.plusHours(1).withMinute(0).withSecond(0);
-
-        Duration duration = Duration.between(now, nextRun);
-        long initialDelay = duration.getSeconds();
-
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-//        scheduler.scheduleAtFixedRate(new UpdateLoginTime(), 0, 10, TimeUnit.SECONDS);
 
-        // 每小时执行一次
+        // 每分钟执行一次
         scheduler.scheduleAtFixedRate(new CoCleanTask(),
-                initialDelay,
-                TimeUnit.MINUTES.toSeconds(1),
+                0,
+                60,
                 TimeUnit.SECONDS);
     }
 }
