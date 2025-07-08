@@ -1,8 +1,16 @@
 ## TeamPlugin
 
 ### 简介
-使用前请先创建以下Index, 以加快清理速度
+使用前请先创建以下Index
 ````
-ALTER TABLE co_block ADD INDEX (time)
-ALTER TABLE co_container ADD INDEX (time)
+CREATE INDEX time_ ON co_block (time);
+CREATE INDEX time_ ON co_container (time);
 ````
+
+### 其他
+如果出现报错: Lock wait timeout exceeded; try restarting transaction
+解决: 在Co数据库执行指令
+```
+CREATE INDEX time_ ON co_block (time);
+CREATE INDEX time_ ON co_container (time);
+```

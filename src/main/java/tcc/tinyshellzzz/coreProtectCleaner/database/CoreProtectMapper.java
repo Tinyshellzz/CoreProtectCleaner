@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class CoreProtectMapper {
+
     public void delete_block_data_older_then(long time) {
         PreparedStatement stmt = null;
         Connection conn = null;
